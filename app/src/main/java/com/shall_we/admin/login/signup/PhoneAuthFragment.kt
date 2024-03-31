@@ -85,7 +85,7 @@ class PhoneAuthFragment : Fragment() {
                 nameTxt = binding.nameEt.text.toString()
                 phoneNumberTxt = binding.phonenumberEt.text.toString()
 
-//                sendRetrofitCall()
+                sendRetrofitCall()
                 timerTv.visibility = View.VISIBLE
                 startTimer()
             }else if(!nameFlag){
@@ -96,15 +96,6 @@ class PhoneAuthFragment : Fragment() {
             }
 
         }
-
-//        binding.codeEt.addTextChangedListener(object: TextWatcher {
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-//            override fun onTextChanged(
-//                s: CharSequence?, start: Int, before: Int, count: Int
-//            ) {
-//            }
-//            override fun afterTextChanged(s: Editable?) {}
-//        })
 
         binding.passwordEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -143,7 +134,7 @@ class PhoneAuthFragment : Fragment() {
             password = binding.passwordEt.text.toString()
             // 인증번호 검증 -> 번호 맞을때만 다음 프래그먼트로 넘기기
             verificationCode = binding.codeEt.text.toString()
-//            validRetrofitCall()
+            validRetrofitCall()
 
             val newFragment = ShopInfoFragment() // 전환할 다른 프래그먼트 객체 생성
             val bundle = Bundle()

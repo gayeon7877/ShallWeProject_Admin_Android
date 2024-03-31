@@ -34,10 +34,10 @@ class SignInService (val authSignInterface: IAuthSignIn) {
                     val gson = Gson()
                     val errorResponse =
                         gson.fromJson(response.errorBody()?.string(), ErrorRes::class.java)
-                    Log.e("login", "Request failed with response code: ${errorResponse.information.message}")
+                    Log.e("login", "Request failed with response code: ${errorResponse.data.message}")
 
-                    authSignInterface.onPostAuthSignInFailed(errorResponse.information.message)
-                    Log.e("login", "Request failed with response code: ${errorResponse.information.message}")
+                    authSignInterface.onPostAuthSignInFailed(errorResponse.data.message)
+                    Log.e("login", "Request failed with response code: ${errorResponse.data.message}")
 
                 }
                 else{
@@ -45,7 +45,7 @@ class SignInService (val authSignInterface: IAuthSignIn) {
                         val gson = Gson()
                         val errorResponse =
                             gson.fromJson(response.errorBody()?.string(), ErrorRes::class.java)
-                        authSignInterface.onPostAuthSignInFailed(errorResponse.information.message)
+                        authSignInterface.onPostAuthSignInFailed(errorResponse.data.message)
                     }catch(e:Exception){
                         authSignInterface.onPostAuthSignInFailed(e.message?:"통신 오류")
                     }

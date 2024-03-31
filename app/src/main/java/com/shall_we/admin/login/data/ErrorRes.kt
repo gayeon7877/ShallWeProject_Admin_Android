@@ -2,25 +2,30 @@ package com.shall_we.admin.login.data
 
 import com.google.gson.annotations.SerializedName
 
-data class ErrorRes (
-    @SerializedName("check")
-    val check: Boolean,
-    @SerializedName("information")
-    val information: Information
+data class ErrorRes(
+    @SerializedName("data")
+    val data: ErrorData,
+    @SerializedName("transaction_time")
+    val transactionTime: String,
+    @SerializedName("status")
+    val status: String,
+    @SerializedName("description")
+    val description: String?,
+    @SerializedName("statusCode")
+    val statusCode: Int
 )
 
-data class Information(
+data class ErrorData(
     @SerializedName("timestamp")
     val timestamp: String,
     @SerializedName("message")
     val message: String,
     @SerializedName("code")
-    val code: Any?, // code가 null이 될 수 있으므로 Any?로 정의
+    val code: String?,
     @SerializedName("status")
     val status: Int,
     @SerializedName("class")
-    val classInfo: Any?, // class가 null이 될 수 있으므로 Any?로 정의
+    val className: String?,
     @SerializedName("errors")
-    val errors: List<Any> // errors가 빈 배열일 수 있으므로 List<Any>로 정의
+    val errors: List<String>
 )
-

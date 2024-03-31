@@ -23,6 +23,7 @@ import com.shall_we.admin.schedule.data.ReservationInfo
 import com.shall_we.admin.schedule.data.ScheduleData
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PATCH
@@ -52,7 +53,7 @@ interface IRetrofit {
 
     // 토큰 리프레시
     @POST(API.AUTH_REFRESH)
-    fun tokenRefresh(@Body refreshTokenArray : RefreshTokenReq): Call<AuthRes>
+    suspend fun tokenRefresh(@Body refreshTokenArray : RefreshTokenReq): Response<AuthRes>
 
     // 번호 인증 - 문자 보내기
     @POST(API.SEND_ONE)
